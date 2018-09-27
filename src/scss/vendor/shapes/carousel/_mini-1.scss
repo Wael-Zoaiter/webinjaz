@@ -1,0 +1,122 @@
+.carousel {
+    @include wi-component-under-shape-style('.wi-style-mini-1') {
+        $background: map-get($bg-map-colors, bg);
+        $headers: map-get($bg-map-colors, headers);
+        $anchors: map-get($bg-map-colors, anchors);
+        $texts: map-get($bg-map-colors, texts);
+        $borders: map-get($bg-map-colors, borders);
+        $buttons: map-get($bg-map-colors, buttons);
+        $shadows: map-get($bg-map-colors, shadows);
+        $contrast: map-get($bg-map-colors, contrast);
+        .carousel-indicators {
+            li {
+                background-color: $background;
+                border-color: $background;
+            }
+        }
+        .carousel-inner {
+            .carousel-caption {
+                color: $texts;
+                background-color: rgba($background, .9);
+                h1,h2,h3,h4,h5,h6 {
+                    span {
+                        color: $contrast;
+                    }
+                }
+                p, a {
+                    color: $texts;
+                }
+            }
+        }
+        .carousel-control {
+            color: $texts;
+            &.left {
+                background: linear-gradient(to right, rgba($background, 0.1) 0%, rgba($background, 0.0001) 100%);
+            }
+            &.right {
+                background: linear-gradient(to left, rgba($background, 0.1) 0%, rgba($background, 0.0001) 100%);
+            }
+        }
+    }
+    @include wi-component-under-shape-general-style('.wi-style-mini-1') {
+        overflow: hidden;
+        .carousel-indicators {
+            display: none;
+        }
+    
+        .carousel-inner {
+            height: inherit;
+            .item {
+                height: inherit;
+                img {
+                    width: 100%;
+                    height: 100%;
+                }
+                .carousel-caption {
+                    top: auto;
+                    left: 0;
+                    right: 0;
+                    bottom: 0;
+                    width: 100%;
+                    // height: 55px;
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    padding: 5px 30px;
+                    flex-flow: row wrap;
+                    box-shadow: 0px -5px 15px 0px rgba(#333,.3);
+                    & > * {
+                        text-shadow: none;
+                        display: inline-block;
+                    }
+                    h5 {
+                        font-size: 15px;
+                        margin-bottom: 0px;
+                        font-weight: lighter;
+                        margin-top: 0;
+                        text-transform: uppercase;
+                        span {
+                            font-weight: bold;
+                        }
+                    }
+                    p {
+                        width: 50%;
+                        font-size: 14px;
+                        margin: 5px;
+                        color: inherit;
+                    }
+                    a {
+                        color: inherit;
+                        border-color: inherit;
+                        border: 0;
+                        text-decoration: none;
+                        font-weight: bold;
+                        box-shadow: none;
+                        padding: 5px 10px;
+                        font-size: 13px;
+                    }
+                }
+            }
+        }
+    
+        .carousel-control {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 80px;
+            height: 100%;
+        }
+        @media (max-width: 767px) {
+            .carousel-indicators {
+                display: none;
+            }
+        }
+        @media (max-width: 600px) {
+            .carousel-caption {
+                & > * {
+                    flex: 1 100%;
+                }
+            }
+        }
+    }
+}

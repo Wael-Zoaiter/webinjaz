@@ -1,0 +1,112 @@
+// Nav Variables
+.nav {
+    background-color: transparent;
+    @include wi-component-under-bg-style() {
+        $background: map-get($bg-map-colors, bg);
+        $texts: map-get($bg-map-colors, texts);
+        $borders: map-get($bg-map-colors, borders);
+        $contrast: map-get($bg-map-colors, contrast);
+        &.nav-boxs {
+            li {
+                background-color: $background;
+                color: $texts;
+                border-color: $borders;
+            }
+        }
+        &.nav-tags{
+            li {
+                a {
+                    @include hover {
+                        color: $contrast;
+                    }
+                }
+                &.active {
+                    a {
+                        border-color: $contrast;
+                        color: $contrast;
+                    }
+                }
+            }        
+        }
+        &.nav-tabs, &.nav-pills {
+            li {
+                &.active a {
+                    background-color: $contrast;
+                    color: color-yiq($contrast);
+                }
+            }
+        }
+    }
+    &.nav-tabs {
+        display: flex;
+        li {
+            flex: 1;
+        }
+    }
+    &.nav-pills{
+        li {
+            background-color: transparent !important;
+        }
+        &:not(.nav-stacked) {
+            li a {
+                border-radius: 5px;
+            }
+        }
+    }
+    &.nav-boxs{
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: space-between;
+        align-items: center;
+        li {
+            flex: 1 23%;
+            margin: 5px;
+            // background-color: #fff;
+            border-radius: 4px;
+            text-align: center;
+            // color: $main-color;
+            // border: 2px solid $main-color;
+            a {
+                padding: 40px 15px;
+                font-weight: 600;
+                i {
+                    display: block;
+                    font-size: 30px;
+                    margin: 0 auto 10px;
+                }
+            }
+        }
+    }
+    &.nav-tags{
+        display: flex;
+        flex-flow: row wrap;
+        background-color: #fff;
+        justify-content: center;
+        width: fit-content;
+        border-radius: 100px;
+        border: 1px solid rgba(#3c3c3c, .2);
+        margin: 0;
+        li {
+            a {
+                padding: 10px 15px;
+                cursor: pointer;
+                border: 2px solid transparent;
+                border-radius: 100px;
+                @include hover {
+                    font-weight: bold;
+                }
+            }
+            &.active {
+                a {
+                    border-width: 2px;
+                    border-style: solid;
+                    background-color: #fff;
+                    font-weight: bold;
+                    @include hover {
+                        font-weight: bold;
+                    }
+                }
+            }
+        }        
+    }
+}

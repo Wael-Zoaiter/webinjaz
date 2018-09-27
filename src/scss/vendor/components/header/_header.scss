@@ -1,0 +1,64 @@
+.header {
+    @include wi-component-under-bg-style() {
+        $background: map-get($bg-map-colors, bg);
+        $headers: map-get($bg-map-colors, headers);
+        $anchors: map-get($bg-map-colors, anchors);
+        $texts: map-get($bg-map-colors, texts);
+        $borders: map-get($bg-map-colors, borders);
+        $buttons: map-get($bg-map-colors, buttons);
+        $shadows: map-get($bg-map-colors, shadows);
+        $contrast: map-get($bg-map-colors, contrast);
+
+        .navbar {
+            .navbar-header {
+                .navbar-brand {
+                    span {
+                        color: $texts;
+                    }
+                }
+            }
+            .navbar-toggle {
+                span {
+                    background-color: $texts;
+                }
+            }
+            .navbar-collapse {
+                .navbar-nav {
+                    li {
+                        a {
+                            color: $texts;
+                        }
+                        &.dropdown {
+                            ul.dropdown-menu {
+                                background-color: $background;
+                                li {
+                                    a {
+                                        color: $texts;
+                                        background-color: $background;
+                                    }
+                                    @include hover {
+                                        a {
+                                            background-color: $contrast;
+                                            color: color-yiq($contrast);
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .pre-navbar {
+            background-color: $contrast;
+            color: invert($texts);
+            .pre-nav {
+                li {
+                    a {
+                        color: inherit;
+                    }
+                }
+            }
+        }
+    }
+}

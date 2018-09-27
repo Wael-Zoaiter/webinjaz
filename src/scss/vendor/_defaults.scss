@@ -1,0 +1,28 @@
+// html
+html, body {
+    overflow-x: hidden;
+}
+
+// Lists
+ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+input, textarea, select {
+  &, &:hover, &:active, &:focus, &:visited, &:focus-within {
+    outline: none;
+  }
+}
+
+// Anchor Tag
+a {
+    text-decoration: none !important;
+    color: darken($main-color, 20%);
+    transition: .3s color ease-out;
+    &:hover, &:active, &:focus {
+      color: $main-color;
+      transition: .3s color ease-out;
+    }
+}

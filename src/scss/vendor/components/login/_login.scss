@@ -1,0 +1,61 @@
+.login {
+  background: transparent;
+  border-radius: 25px;
+  overflow: hidden;
+  img {
+    width: 100%;
+    padding: 15px;
+    border-radius: 35px;
+  }
+  .nav-tabs, .tab-content {
+    margin-right: 15px;
+    margin-left: 15px;
+  }
+  .tab-content {
+    border-radius: 0 0 20px 20px;
+    .tab-pane {
+      .panel {
+        width: 100%;
+        margin-top: 30px;
+        border: 0;
+        box-shadow: none;
+        background-color: transparent;
+        .panel-heading {
+          display: none;
+        }
+        .panel-body {
+          form {
+            .form-group {
+              margin-bottom: 15px;
+              & > label {
+
+              }
+              .input-group {
+                span {
+                  background-color: transparent;
+                  border: 0;
+                }
+                > input, textarea {
+                  border: 0;
+                  text-align: center;
+                  background-color: transparent;
+                  padding: 10px 10px 15px;
+                  font-size: 16px;
+                  border-bottom: 1px solid inherit;
+                  transition: .3s border-color ease;
+                  resize: none;
+                  &:hover, &:active, &:focus {
+                      box-shadow: none;
+                      outline: none;
+                      border-color: $main-color;
+                      transition: .3s border-color ease;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

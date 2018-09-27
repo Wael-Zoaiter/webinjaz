@@ -1,0 +1,78 @@
+// Color Functions
+
+@function color-yiq($color) {
+    $r: red($color);
+    $g: green($color);
+    $b: blue($color);
+  
+    $yiq: (($r * 299) + ($g * 587) + ($b * 114)) / 1000;
+  
+    @if ($yiq >= $yiq-contrasted-threshold) {
+      @return $yiq-text-dark;
+    } @else {
+      @return $yiq-text-light;
+    }
+  }
+  
+  @function is-color-yiq($color) {
+    $r: red($color);
+    $g: green($color);
+    $b: blue($color);
+  
+    $yiq: (($r * 299) + ($g * 587) + ($b * 114)) / 1000;
+  
+    @if ($yiq >= $yiq-contrasted-threshold) {
+      @return true; //dark
+    } @else {
+      @return false; //white
+    }
+  }
+  
+  @function anchors($color) {
+    @if is-color-yiq($color) == true {
+      $anchors: lighten($color, 15%);
+      @return $anchors;
+    } @else if is-color-yiq($color) == false {
+      $anchors: darken($color, 15%);
+      @return $anchors;
+    }
+  }
+  
+  @function headers($color) {
+    @if is-color-yiq($color) == true {
+      $headers: lighten($color, 15%);
+      @return $headers;
+    } @else if is-color-yiq($color) == false {
+      $headers: darken($color, 15%);
+      @return $headers;
+    }
+  }
+  
+  @function texts($color) {
+    $texts: color-yiq($color);
+    @return $texts;
+  }
+  
+  @function borders($color) {
+    $borders: darken($color, 10%);
+    @return $borders;
+  }
+  
+  @function buttons($color) {
+    $buttons: $color;
+    @return $buttons;
+  }
+  
+  @function shadows($color) {
+    $shadows: color-yiq($color);
+    @return $shadows;
+  }
+  
+  @function get-color-sets($color-name) {
+    $color-map: map-get($wi-colors, $color-name);
+    @return $color-map;
+  }
+  
+  @function inverse-component-color($color-map) {
+    @return get-color-sets(map-get($color-map, components))
+  }

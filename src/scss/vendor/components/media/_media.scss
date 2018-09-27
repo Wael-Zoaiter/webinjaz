@@ -1,0 +1,63 @@
+// Media Variables
+$media-padding: 5px;
+$media-title-size: 15px;
+$media-list-size: 12px;
+$media-border-radius: 5px;
+.media {
+  padding: $media-padding;
+  margin-bottom: 10px;
+  border-radius: $media-border-radius;
+  .media-heading,
+  .media-heading a {
+      color: inherit;
+  }
+  .media-left,
+  .media-right {
+      .media-object {
+          width: 50px;
+          border-radius: $media-border-radius - 1;
+      }
+  }
+  .media-body {
+    padding: 5px 0;
+      .media-heading {
+          .media-title,
+          &,
+          & a {
+              font-size: $media-title-size;
+              margin-top: 0;
+              margin-bottom: 5px;
+          }
+      }
+  }
+  ul {
+      li {
+          font-size: $media-list-size;
+      }
+  }
+  footer & {
+    padding: 3px;
+    margin-bottom: 5px;
+    .media-body {
+      padding: 3px 0;
+        .media-heading {
+            .media-title,
+            &,
+            & a {
+                font-size: $media-title-size - 2;
+                margin-top: 0;
+                margin-bottom: 3px;
+            }
+        }
+    }
+    ul {
+      li {
+          font-size: $media-list-size - 2;
+      }
+    }
+  }
+}
+
+.media-list {
+  margin-bottom: 15px;
+}

@@ -1,0 +1,7 @@
+// WI Mixins
+
+@mixin hover {
+    &:hover, &:active, &:focus {
+        @content;
+    }
+}

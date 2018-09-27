@@ -1,0 +1,92 @@
+// Mixins
+
+/*
+  * The main elements that effected by the background colors.
+*/
+
+@mixin wi-elements-colors($colors-map) {
+    h1, h2, h3, h4, h5, h6, .title, legend {
+      color: map-get($colors-map, headers);
+      transition: .3s color ease;
+      @include hover {
+        color: darken(map-get($colors-map, headers), 10%);
+        transition: .3s color ease;
+      }
+    }
+    a, strong, i.fa {
+      color: map-get($colors-map, anchors);
+      transition: .3s color ease;
+      @include hover {
+        color: darken(map-get($colors-map, anchors), 10%);
+        transition: .3s color ease;
+      }
+    }
+    .badge {
+      color: color-yiq(map-get($colors-map, buttons));
+      background-color: map-get($colors-map, buttons);
+      border-color: darken(map-get($colors-map, buttons), 10%);
+    }
+    & {
+      background-color: map-get($colors-map, bg);
+      color: map-get($colors-map, texts);
+      border-color: map-get($colors-map, borders);
+      // box-shadow: 0px 0px 3px 3px rgba(map-get($colors-map, shadows), .2);
+    }
+  }
+
+  // Note: 
+  // - We cannot use the mixin 'wi-component-under-bg' and 'wi-component-under-shape' inside of each other.
+  // - the mixin 'wi-elements-colors' should only used twice: 
+  //    1- directly inside '.wi-bg-..' background class.
+  //    2- inside the component when it have a 'inverse' class.
+  
+  // Only generate class for each background we have and pass the correct map colors to the content if needed.
+  @mixin wi-component-under-bg-style($map-key: 'colour') {
+    @each $color-name, $colour-or-inverse in $wi-theme-colors {
+      .wi-bg-#{$color-name} &,
+      &.wi-bg-#{$color-name} {
+        @if $map-key == 'inverse' {
+          $bg-map-colors: map-get($colour-or-inverse, $map-key) !global;
+        }
+        $bg-map-colors: map-get($colour-or-inverse, $map-key) !global;
+        @content;
+      }
+    }
+  }
+
+  /* 
+    * Only generate class for the shape in every possible place (
+    *   parent of bg,
+    *   sibling of bg,
+    *   child of bg,
+    *   sibling of component
+    * )
+    * and pass the inverse set of colors when required or the default set of colors for each background.
+    * The @content is 'just' the shape css sets that effected by the background colors.
+  */
+  @mixin wi-component-under-shape-style($class, $map-key: 'colour') {
+    @each $color-name, $colour-or-inverse in $wi-theme-colors {
+      #{$class}.wi-bg-#{$color-name} &,
+      #{$class} .wi-bg-#{$color-name} &,
+      .wi-bg-#{$color-name} #{$class} &,
+      .wi-bg-#{$color-name} &#{$class},
+      &.wi-bg-#{$color-name}#{$class} {
+        @if $map-key == 'inverse' {
+          $bg-map-colors: map-get($colour-or-inverse, $map-key) !global;
+          @include wi-elements-colors($bg-map-colors);
+        }
+        $bg-map-colors: map-get($colour-or-inverse, $map-key) !global;
+        @content;
+      }
+    }
+  }
+  
+  /*
+    * Only generate the component style under the shape class name.
+    * The @content shouldn't be a css sets that effected by the background colors.
+  */
+  @mixin wi-component-under-shape-general-style($class) {
+    &#{$class}, #{$class} & {
+      @content;
+    }
+  }

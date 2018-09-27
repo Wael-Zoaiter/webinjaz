@@ -1,0 +1,29 @@
+& {
+    @include wi-component-under-bg-style() {
+        $background: map-get($bg-map-colors, bg);
+        $headers: map-get($bg-map-colors, headers);
+        $anchors: map-get($bg-map-colors, anchors);
+        $texts: map-get($bg-map-colors, texts);
+        $borders: map-get($bg-map-colors, borders);
+        $buttons: map-get($bg-map-colors, buttons);
+        $shadows: map-get($bg-map-colors, shadows);
+        $contrast: map-get($bg-map-colors, contrast);
+    
+        color: $contrast;
+        @include hover {
+            background-color: $contrast;
+            border-color: darken($contrast ,10%);
+            color: color-yiq($contrast);
+        }
+    }
+    background-color: transparent;
+    font-weight: bold;
+    padding: 10px 30px;
+    border-radius: 0;
+    border-width: 2px;
+    border-style: solid;
+    transition: .5s background-color ease,.5s color ease;
+    @include hover {
+        transition: .5s background-color ease,.5s color ease;
+    }
+}

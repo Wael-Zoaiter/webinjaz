@@ -1,0 +1,23 @@
+$white: #fff;
+$black: #222;
+
+$yiq-contrasted-threshold: 150;
+$yiq-text-dark: $black !default;
+$yiq-text-light: $white !default;
+
+$body-color: #f5f5f5 !default;
+$main-color: #444488 !default;
+$light-color: #fff !default;
+$dark-color: #3c3c3c !default;
+
+$elements-body-color: $main-color !default;
+$elements-main-color: $body-color !default;
+$elements-light-color: $dark-color !default;
+$elements-dark-color: $light-color !default;
+
+$components-body-color: 'light' !default;
+$components-main-color: 'body' !default;
+$components-light-color: 'dark' !default;
+$components-dark-color: 'light' !default;
+
+@import '../../variables';

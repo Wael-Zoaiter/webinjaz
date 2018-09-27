@@ -1,0 +1,286 @@
+.header {
+    @include wi-component-under-shape-style('.wi-style-mini-1') {
+        $background: map-get($bg-map-colors, bg);
+        $texts: map-get($bg-map-colors, texts);
+        $borders: map-get($bg-map-colors, borders);
+        $anchors: map-get($bg-map-colors, anchors);
+        $contrast: map-get($bg-map-colors, contrast);
+        .navbar {
+            .navbar-header {
+                .navbar-brand {
+                    background-color: $background;
+                }
+            }
+            .navbar-collapse {
+                .navbar-nav {
+                    li {
+                        &:hover, &:active, &:focus, &.active, &.open {
+                           a {
+                            color: $anchors;
+                            background-color: $contrast;
+                           }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    @include wi-component-under-shape-general-style('.wi-style-mini-1') {
+        position: fixed;
+        top: 0;right: 0;left: 0;
+        z-index: 99;
+        box-shadow: 0 0 3px rgba(0,0,0,.2);
+        &.affix {
+            .pre-navbar {
+                height: 0px;
+                transition: .5s height ease-in-out;
+            }
+            .navbar {
+                .navbar-brand {
+                    background-color: transparent !important;
+                    position: static !important;
+                    height: 40px !important;
+                    padding: 4px 25px !important;
+                    box-shadow: none !important;
+                    transition: .5s height ease,
+                                .5s padding ease,
+                                .5s box-shadow;
+                }
+                .navbar-collapse {
+                    .navbar-nav {
+                        &:first-child {
+                            margin-left: 0px;
+                        }
+                    }
+                }
+            }
+        }
+        .navbar {
+            box-shadow: 0 0 3px rgba(0,0,0,.2);
+            border-radius: 0;
+            border: 0;
+            min-height: 40px;
+            margin: 0;
+            a {
+                padding: 10px 25px;
+            }
+            .navbar-header {
+                position: relative;
+                .navbar-brand {
+                    height: auto;
+                    box-shadow: 0px 0px 25px 2px rgba(0, 0, 0, 0.3);
+                    text-transform: uppercase;
+                    position: absolute;
+                    height: 70px;
+                    padding: 20px 25px;
+                    left: 0;
+                    margin-left: 0px;
+                    z-index: 5;
+                    width: 160px;
+                    border-radius: 0 0 20px 20px;
+                    transition: .5s height ease,
+                    .5s padding ease,
+                    .5s box-shadow;
+                    img {
+                        height: 30px;
+                        margin-right: 5px;
+                        display: inline-block;
+                    }
+                    span {
+                        font-size: 13px;
+                        vertical-align: middle;
+                        font-weight: 600;
+                        line-height: 1.3;
+                        line-break: auto;
+                        width: 30px;
+                        display: inline-block;
+                    }
+                }
+                .navbar-toggle {
+                    background-color: transparent;
+                    border-radius: 0;
+                    border: 0;
+                    height: 40px;
+                    margin: 0;
+                    &:hover, &:active, &:focus, &:visited {
+                        background-color: transparent;
+                    }
+                    // X on Open
+                    transition: .5s transform ease;
+                    &.collapsed
+                    {
+                        // transform: rotate(0deg);
+                        transition: .5s transform ease;
+                        .icon-bar
+                        {
+                            margin-top: 5px !important;
+                            &:nth-of-type(3)
+                            {
+                                display: block;
+                            }
+                            &:nth-of-type(4)
+                            {
+                                transform: rotate(0deg);
+                                transition: .5s transform ease;
+                            }
+                            &:nth-of-type(2)
+                            {
+                                margin-top: 0px !important;
+                                transform: rotate(0deg);
+                                transition: .5s transform ease;
+                            }
+                        }
+                    }
+                    .icon-bar
+                    {
+                        margin-top: -1.7px;
+                        &:nth-of-type(3)
+                        {
+                            display: none;
+                        }
+                        &:nth-of-type(4)
+                        {
+                            transform: rotate(-45deg);
+                            transition: .5s transform ease;
+                        }
+                        &:nth-of-type(2)
+                        {
+                            transform: rotate(45deg);
+                            transition: .5s transform ease;
+                        }
+                    }
+                }
+            }
+            .navbar-collapse {
+                overflow: auto;
+                max-height: 99vh;
+                .navbar-nav {
+                    &:first-child {
+                        margin-left: 145px;
+                    }
+                    li {
+                        a {
+                            padding: 10px 25px;
+                            text-transform: uppercase;
+                            font-weight: 600;
+                            transition: .5s;
+                        }
+                        &:hover, &:active, &:focus, &.active, &.open {
+                           a {
+                            // font-weight: bold;
+                            // transition: .5s;
+                           }
+                        }
+                        &.dropdown {
+                            ul.dropdown-menu {
+                              // max-height: 0;
+                              // display: block;
+                              // overflow: hidden;
+                              // opacity: 0;
+                              // transition: .3s;
+                                li {
+                                    a {
+                                        transition: .2s background-color ease,
+                                        .2s color ease;
+                                    }
+                                    &:hover, &:active, &:focus {
+                                        a {
+                                            transition: .2s background-color ease,
+                                            .2s color ease;
+                                        }
+                                    }
+                                }
+                            }
+                            &:hover, &:active {
+                              .dropdown-menu {
+                                // max-height: fit-content;
+                                // opacity: 1;
+                                // transition: .3s;
+                              }
+                            }
+                        }
+                    }
+                }
+            }
+            // change bootstrap collapse to 991px
+            @media (max-width: 991px) {
+                .navbar-header {
+                    float: none;
+                }
+                .navbar-toggle {
+                    display: block;
+                }
+                .navbar-collapse {
+                    border-top: 1px solid transparent;
+                    box-shadow: inset 0 1px 0 rgba(255,255,255,0.1);
+                }
+                .navbar-collapse.collapse {
+                    display: none!important;
+                }
+                .navbar-nav {
+                    float: none!important;
+                    margin: 7.5px -15px;
+                }
+                .navbar-nav>li {
+                    float: none;
+                }
+                .navbar-nav>li>a {
+                    padding-top: 10px;
+                    padding-bottom: 10px;
+                }
+    
+               .navbar-collapse.collapse.in {  /* NEW */
+                    display: block!important;
+                }
+                .navbar-collapse {
+                    .navbar-nav {
+                        text-align: center;
+                        li {
+                            text-align: center;
+                        }
+                        &:first-child {
+                            margin-left: auto;
+                        }
+                    }
+                }
+            }
+        }
+        .pre-navbar {
+            width: 100%;
+            height: 25px;
+            padding: 0 100px;
+            box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+            transition: .5s height ease-in-out;
+            .pre-nav {
+                margin: 0;
+                height: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: space-evenly;
+                li {
+                    display: inline-block;
+                    i {
+                        font-size: 15px;
+                    }
+                    a {
+                        margin: 0 5px;
+                    }
+                }
+            }
+        }
+        @media (max-width: 991px) {
+            .pre-navbar {
+                padding: 0 20px;
+                .pre-nav {
+                    justify-content: flex-end;
+                    & > li {
+                        &:not(:first-child) {
+                            display: none;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

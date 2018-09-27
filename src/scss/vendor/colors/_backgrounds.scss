@@ -1,0 +1,38 @@
+// Background Mixin
+
+@import 'background-mixins';
+
+/*
+  * Generate the essential '.wi-bg-..' class and pass the correct set of colors of each of them.
+  * and define the siblig classes for this 'wi-bg' classes and what it does.
+*/
+
+@each $color-name, $colour-or-inverse in $wi-theme-colors {
+  .wi-bg-#{$color-name} {
+    $bg-map-colors: map-get($colour-or-inverse, colour) !global;
+    @include wi-elements-colors($bg-map-colors);
+    $bg: map-get($bg-map-colors, bg);
+    &.gradient {
+      background: $bg linear-gradient(90deg, darken($bg, 10%), $bg, darken($bg, 10%)) repeat-x !important;
+    }
+  }
+}
+// @each $color-name, $colour-or-inverse in $wi-theme-colors {
+//   .bg-#{$color-name} {
+//     $bg-colors: map-get($colour-or-inverse, colour) !global;
+//     $background: map-get($bg-colors, bg);
+//     $texts: map-get($bg-colors, texts);
+//     background: $background !important;
+//     color: $texts;
+//   }
+// }
+
+// Background class helpers
+
+.bg-white {
+  background-color: $white !important;
+}
+
+.bg-transparent {
+  background-color: transparent !important;
+}

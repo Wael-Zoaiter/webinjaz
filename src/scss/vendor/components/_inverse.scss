@@ -1,0 +1,40 @@
+// Inverse Components
+.card, .media, .nav-pills, .nav-tabs, .nav-boxs, .panel, form, .login, .email {
+    @include wi-component-under-shape-style('.inverse', 'inverse');
+}
+
+.card {
+    @include wi-component-under-shape-style('.inverse-card', 'inverse');
+}
+
+.media {
+    @include wi-component-under-shape-style('.inverse-media', 'inverse');
+}
+
+.panel {
+    @include wi-component-under-shape-style('.inverse-panel', 'inverse');
+}
+
+form {
+    @include wi-component-under-shape-style('.inverse-form', 'inverse');
+}
+
+.login {
+    @include wi-component-under-shape-style('.inverse-login', 'inverse');
+}
+
+.email {
+    @include wi-component-under-shape-style('.inverse-email', 'inverse');
+}
+
+.nav-boxs {
+    @include wi-component-under-shape-style('.inverse-nav-boxs', 'inverse');
+}
+
+.nav-pills {
+    @include wi-component-under-shape-style('.inverse-nav-pills', 'inverse');
+}
+
+.nav-tabs {
+    @include wi-component-under-shape-style('.inverse-nav-tabs', 'inverse');
+}

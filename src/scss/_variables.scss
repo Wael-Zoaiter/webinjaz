@@ -1,0 +1,16 @@
+// add your own colors
+
+$body-color: #f3f3f3;
+$main-color: #444488;
+$light-color: #fff;
+$dark-color: #3c3c3c;
+
+$elements-body-color: $main-color;
+$elements-main-color: $body-color;
+$elements-light-color: $dark-color;
+$elements-dark-color: $light-color;
+
+$components-body-color: 'light';
+$components-main-color: 'body';
+$components-light-color: 'dark';
+$components-dark-color: 'light';

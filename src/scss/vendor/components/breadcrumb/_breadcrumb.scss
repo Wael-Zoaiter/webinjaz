@@ -1,0 +1,65 @@
+.breadcrumb {
+    @include wi-component-under-bg-style() {
+        $background: map-get($bg-map-colors, bg);
+        $headers: map-get($bg-map-colors, headers);
+        $anchors: map-get($bg-map-colors, anchors);
+        $texts: map-get($bg-map-colors, texts);
+        $borders: map-get($bg-map-colors, borders);
+        $buttons: map-get($bg-map-colors, buttons);
+        $shadows: map-get($bg-map-colors, shadows);
+        $contrast: map-get($bg-map-colors, contrast);
+        li {
+            & a, &.active {
+                &:hover, &:active, &:focus {
+                    color: $contrast;
+                }
+            }
+            &.active {
+                border-color: $contrast;
+                background-color: $background;
+                color: $contrast;
+            }
+        }
+    }
+    display: flex;
+    flex-flow: row wrap;
+    background-color: #fff;
+    justify-content: center;
+    width: fit-content;
+    border-radius: 100px;
+    border: 1px solid rgba(#3c3c3c, .2);
+    margin: 0 0 30px;
+    padding: 0;
+    li {
+        display: flex;
+        & + li:before {
+            content: '';
+            padding: 0;
+        }
+        & a {
+            color: lighten($dark-color, 15%) !important;
+        }
+        & a, &.active {
+            padding: 10px 15px;
+            font-size: 12px;
+            cursor: pointer;
+            border: 2px solid transparent;
+            border-radius: 100px;
+            &:hover, &:active, &:focus {
+                font-weight: bold;
+            }
+        }
+        a {
+            color: inherit;
+            font-weight: bold;
+        }
+    }
+    li.active {
+        border-width: 2px;
+        border-style: solid;
+        font-weight: bold;
+        &:hover, &:active, &:focus {
+            font-weight: bold;
+        }
+    }
+}

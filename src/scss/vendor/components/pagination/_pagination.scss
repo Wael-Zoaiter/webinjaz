@@ -1,0 +1,47 @@
+.pagination {
+    @include wi-component-under-bg-style() {
+        $background: map-get($bg-map-colors, bg);
+        $headers: map-get($bg-map-colors, headers);
+        $anchors: map-get($bg-map-colors, anchors);
+        $texts: map-get($bg-map-colors, texts);
+        $borders: map-get($bg-map-colors, borders);
+        $buttons: map-get($bg-map-colors, buttons);
+        $shadows: map-get($bg-map-colors, shadows);
+        $contrast: map-get($bg-map-colors, contrast);
+        li {
+            a {
+                background-color: $contrast;
+                color: color-yiq($contrast);
+            }
+            &.prev, &.next {
+                color: color-yiq($anchors);
+                background-color: $anchors;
+            }
+            @include hover {
+                a {
+                    background-color: color-yiq($contrast);
+                    color: $contrast;
+                }
+            }
+        }
+    }
+    background-color: transparent;
+    margin: 30px auto;
+    li {
+        a {
+            margin: 1px;
+            border: 0;
+            transition: .3s color ease, .3s background-color ease;
+        }
+        &.prev, &.next {
+            span {
+                border: 0;
+            }
+        }
+        @include hover {
+            a {
+                transition: .3s color ease, .3s background-color ease;
+            }
+        }
+    }
+}

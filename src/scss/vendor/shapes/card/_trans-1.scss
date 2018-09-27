@@ -1,0 +1,22 @@
+.card {
+  @include wi-component-under-shape-style('.wi-style-trans-1') {
+    $bg: map-get($bg-map-colors, bg);
+    border-color: rgba(invert($bg), .2) !important;
+  }
+  @include wi-component-under-shape-general-style('.wi-style-trans-1') {
+    margin: 5px;
+    padding: 20px;
+    text-align: left;
+    box-shadow: none !important;
+    border-width: 1px;
+    border-style: solid;
+    .card-title {
+      a {display: flex;}
+      span {
+        &::before {
+          font-size: 35px;
+        }
+      }
+    }
+  }
+}

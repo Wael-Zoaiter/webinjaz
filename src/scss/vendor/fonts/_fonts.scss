@@ -1,0 +1,21 @@
+/** Fonts
+* Amiri
+* Aref-Ruqaa
+* Baloo-Bhaijaan
+* Cairo
+* Harmattan
+* Jomhuria
+* Lateef
+* Mirza
+* Rakkas
+* Scheherazade
+* Tajawal
+**/
+
+$font: 'Cairo';
+
+@import 'Cairo/font';
+
+body {
+  font-family: $font;
+}

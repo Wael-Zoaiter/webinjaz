@@ -1,0 +1,157 @@
+.carousel {
+    @include wi-component-under-shape-style('.wi-shape-fancy-1') {
+        $background: map-get($bg-map-colors, bg);
+        $headers: map-get($bg-map-colors, headers);
+        $anchors: map-get($bg-map-colors, anchors);
+        $texts: map-get($bg-map-colors, texts);
+        $borders: map-get($bg-map-colors, borders);
+        $buttons: map-get($bg-map-colors, buttons);
+        $shadows: map-get($bg-map-colors, shadows);
+        $contrast: map-get($bg-map-colors, contrast);
+        .carousel-inner {
+            .item {
+                .carousel-caption {
+                    background-color: $background;
+                }
+            }
+        }
+        .carousel-control {
+            color: $texts;
+            background: linear-gradient(to left, rgba($background, 0.8) 0%, $background 100%);
+        }
+    }
+    @include wi-component-under-shape-general-style('.wi-shape-fancy-1') {
+        overflow: hidden;
+        .carousel-indicators {
+            bottom: 25%;
+            left: 35%;
+            right: auto;
+            top: auto;
+            margin-left: 0;
+            li {
+                display: block;
+                border-radius: 100px;
+                text-indent: initial;
+                line-height: 30px;
+                font-weight: bold;
+                height: 30px;
+                width: 30px;
+                margin: 0px 15px;
+                opacity: .3;
+                transform: scale(.5);
+                transition: .3s transform ease-in-out, .3s opacity ease-in-out;
+                box-shadow: 1px 0px 30px 0px rgba(0, 0, 0, 0.1);
+                &.active {
+                    transform: scale(1);
+                    opacity: 1;
+                    transition: .3s transform ease-in-out, .3s opacity ease-in-out;
+                }
+            }
+        }
+    
+        .carousel-inner {
+            height: inherit;
+            position: relative;
+            .item {
+                height: inherit;
+                img {
+                    width: 65%;
+                    height: 100%;
+                    float: right;
+                    opacity: 1;
+                    transition: .3s opacity ease;
+                }
+                .carousel-caption {
+                    top: 0;
+                    left: 0;
+                    position: absolute;
+                    bottom: 0;
+                    right: auto;
+                    width: 35%;
+                    color: inherit;
+                    height: fit-content;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    padding-right: 3%;
+                    padding-left: 3%;
+                    flex-direction: column;
+                    & > * {
+                        text-shadow: none;
+                    }
+                    h1,h2,h3,h4,h5,h6 {
+                        font-size: 35px;
+                        margin-bottom: 20px;
+                        margin-top: 0;
+                        text-transform: uppercase;
+                        span {
+                            font-weight: bold;
+                        }
+                    }
+                    p {
+                        font-size: 15px;
+                        margin-bottom: 40px;
+                    }
+                    a {
+                        text-decoration: none;
+                        font-size: 13px;
+                    }
+                }
+                &.next, &.prev {
+                    opacity: 0;
+                    transition: .3s opacity ease;
+                }
+            }
+        }
+    
+        .carousel-control {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-shadow: none;
+            width: 50px;
+            height: 50px;
+            left: 35%;
+            opacity: 1;
+            box-shadow: 9px 0px 29px 0px rgba(0, 0, 0, 0.1);
+            &.left {
+                top: 0;
+                bottom: auto;
+                border-radius: 0 0 10px 0;
+            }
+            &.right {
+                bottom: 0;
+                top: auto;
+                border-radius: 0 10px 0 0;
+            }
+        }
+        @media (max-width: 767px) {
+            .carousel-inner {
+                .item {
+                    .carousel-caption {
+                        top: auto;
+                        right: 0;
+                        width: 100%;
+                        border-radius: 0;
+                        padding-bottom: 30px;
+                        h5 {
+                            font-size: 30px;
+                            margin-bottom: 20px;
+                        }
+                        p {
+                            font-size: 14px;
+                            margin-bottom: 20px;
+                        }
+                        a {
+                            font-size: 13px;
+                            padding: 5px 20px;
+                        }
+                    }
+                }
+            }
+            .carousel-indicators {
+                display: none;
+            }
+        }
+    }
+}

@@ -1,0 +1,37 @@
+.card {
+    @include wi-component-under-shape-general-style('.wi-style-custom-1') {
+        padding: 30px;
+        border-radius: 5px;
+        .card-body {
+            ul {
+                li {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    margin-bottom: 10px;
+                    i {
+                        color: rgba(0, 0, 0, .3);
+                    }
+                }
+            }
+        }
+        .card-title {
+            text-transform: uppercase;
+            font-weight: 700;
+            margin: 0;
+        }
+        .card-title + p {
+            margin-bottom: 20px;
+        }
+        hr {
+            margin: 25px -30px;
+        }
+        p {
+            text-align: center;
+            strong {
+                font-weight: 700;
+                font-size: 20px;
+            }
+        }
+    }
+}

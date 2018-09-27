@@ -1,0 +1,51 @@
+.card {
+    @include wi-component-under-shape-style('.wi-style-simple-1') {
+        $bg: map-get($bg-map-colors, bg);
+        ul.list-inline {
+            li {
+                color: $bg;
+                background-color:  lighten($bg, 40%);
+            }
+        }
+    }
+    @include wi-component-under-shape-general-style('.wi-style-simple-1') {
+        margin: 5px;
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 4px 50px 0 rgba(0, 0, 0, 0.1);
+        .card-title {
+            font-weight: 600;
+            font-size: 18px;
+            color: inherit;
+            margin-bottom: 20px;
+            a {
+                display: flex;
+            }
+            span {
+                font-size: 40px;
+                &::before {
+                    font-size: inherit;
+                    font-weight: 400;
+                }
+            }
+            img {
+                height: 35px;
+                margin: 20px auto;
+            }
+        }
+        ul.list-inline {
+            li {
+                border-radius: 4px;
+            }
+        }
+        p {
+            font-weight: 200;
+            font-size: 14px;
+            line-height: 1.6;
+            color: inherit;
+        }
+        .card-btn {
+            text-align: right;
+        }
+    }
+}

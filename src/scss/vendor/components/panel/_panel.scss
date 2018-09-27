@@ -1,0 +1,35 @@
+// Variables
+
+// .panel
+$panel-border-width: 0px;
+$panel-border-radius: 0px;
+  // .panel-heading
+  $panel-heading-align: center;
+  $panel-heading-radius: 0px;
+  // .panel-body
+
+  // .panel-footer
+  $panel-footer-border-width: 0px;
+
+// Panels
+
+.panel {
+  background-color: inherit;
+  border-width: $panel-border-width;
+  border-style: solid;
+  border-radius: $panel-border-radius;
+  .panel-heading {
+    text-align: $panel-heading-align;
+    border-radius: $panel-heading-radius;
+    font-size: 16px;
+    font-weight: bold;
+    background-color: inherit;
+    border-color: inherit;
+  }
+  .panel-body {
+
+  }
+  .panel-footer {
+    border-width: $panel-footer-border-width;
+  }
+}

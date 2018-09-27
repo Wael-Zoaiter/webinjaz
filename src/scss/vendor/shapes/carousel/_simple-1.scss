@@ -1,0 +1,120 @@
+// Variables
+
+// .carousel
+  // .carousel-inner
+    // .item
+      // img
+      $carousel-image-width: 70%;
+      // .carousel-caption
+      $carousel-caption-width: 100 - $carousel-image-width;
+      $carousel-caption-top: 0;
+      $carousel-caption-bottom: 0;
+      $carousel-caption-right: 0;
+      $carousel-caption-left: auto;
+        // button
+        $carousel-caption-btn-padding: 10px 50px;
+        $carousel-caption-btn-margin: 15px auto;
+        $carousel-caption-btn-border-width: 1px;
+  // .carousel-indicators
+  $carousel-indicators-bottom: 60px;
+  $carousel-indicators-left: 50px;
+  $carousel-indicators-right: auto;
+  $carousel-indicators-top: auto;
+  $carousel-indicators-li-radius: 2px;
+  // .carousel-control
+  $carousel-control-width: 50px;
+  $carousel-control-height: $carousel-control-width;
+  $carousel-control-top: auto;
+  $carousel-control-bottom: 0;
+  $carousel-control-right: auto;
+  $carousel-control-left: 0;
+  $carousel-control-opacity: .8;
+  $carousel-control-color: inherit;
+  $carousel-control-bg: none;
+
+  .carousel {
+  $background: map-get($bg-map-colors, bg);
+  @include wi-component-under-shape-style('.wi-style-simple-1') {
+    .carousel-inner {
+      .carousel-caption {
+        background: inherit;
+        color: inherit;
+        button {
+          color: $background;
+          background-color: color-yiq($background);
+          border-color: darken($background, 15%);
+        }
+      }
+    }
+    .carousel-control {
+      background-color: $background;
+      color: color-yiq($background);
+    }
+  }
+  @include wi-component-under-shape-general-style('.wi-style-simple-1') {
+    .carousel-inner {
+      .item {
+        img {
+          width: $carousel-image-width;
+        }
+        .carousel-caption {
+          width: $carousel-caption-width;
+          top: $carousel-caption-top;
+          bottom: $carousel-caption-bottom;
+          right: $carousel-caption-right;
+          left: $carousel-caption-left;
+          padding-left: 30px;
+          padding-right: 30px;
+          text-shadow: none;
+          display: flex;
+          flex-flow: column wrap;
+          justify-content: center;
+          align-items: center;
+          h1,h2,h3,h4,h5,h6 {
+            font-size: 25px;
+            padding-bottom: 15px;
+          }
+          button {
+            display: block;
+            padding: $carousel-caption-btn-padding;
+            border-width: $carousel-caption-btn-border-width;
+            margin: $carousel-caption-btn-margin;
+            border-style: solid;
+          }
+        }
+      }
+    }
+    .carousel-indicators {
+      bottom: $carousel-indicators-bottom;
+      left: $carousel-indicators-left;
+      right: $carousel-indicators-right;
+      top: $carousel-indicators-top;
+      li {
+        border-radius: $carousel-indicators-li-radius;
+      }
+    }
+    .carousel-control {
+      width: $carousel-control-width;
+      height: $carousel-control-height;
+      bottom: $carousel-control-bottom;
+      top: $carousel-control-top;
+      right: $carousel-control-right;
+      color: $carousel-control-color;
+      background: $carousel-control-bg;
+      text-shadow: none;
+      opacity: $carousel-control-opacity;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      .fa {
+        z-index: 5;
+      }
+      &.left {
+        left: $carousel-control-left;
+      }
+      &.right {
+        left: $carousel-control-left + $carousel-control-width + 1;
+      }
+    }
+  }
+}

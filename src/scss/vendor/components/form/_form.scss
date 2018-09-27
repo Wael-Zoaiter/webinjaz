@@ -1,0 +1,142 @@
+// Form Component Style
+// Variables
+// Styles
+form {
+    padding: 10px;
+    .form-group {
+        & > label {
+            display: block;
+            font-size: 14px;
+            text-transform: capitalize;
+        }
+        & > select,
+        & > input,
+        & > textarea {
+            border: 0;
+            padding: 0px 10px;
+            border-width: 1px;
+            border-style: solid;
+            background-color: rgba(255, 255, 255, 0.5);
+            width: 100%;
+            transition: .5s border-color ease, .5s background-color ease, .5s color ease;
+            resize: none;
+        }
+        .checkbox {
+            label * {
+                display: inline;
+                width: fit-content;
+            }
+            label {
+                input {
+                    vertical-align: middle;
+                    margin-right: 5px;
+                    -webkit-appearance: none;
+                    border-width: 1px;
+                    border-style: solid;
+                    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), inset 0px -15px 10px -12px rgba(0, 0, 0, 0.05);
+                    padding: 9px;
+                    border-radius: 3px;
+                    display: inline-block;
+                    position: relative;
+                    &:checked {
+                        vertical-align: bottom;
+                        border-width: 1px;
+                        border-style: solid;
+                        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), inset 0px -15px 10px -12px rgba(0, 0, 0, 0.05), inset 15px 10px -12px rgba(255, 255, 255, 0.1);
+                    }
+                    &:checked:after {
+                        content: '\2714';
+                        font-size: 14px;
+                        position: absolute;
+                        top: -3px;
+                        left: 3px;
+                    }
+                }
+            }
+        }
+        .radio {
+            vertical-align: middle;
+            margin-right: 5px;
+            -webkit-appearance: none;
+            border-width: 1px;
+            border-style: solid;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), inset 0px -15px 10px -12px rgba(0, 0, 0, 0.05);
+            padding: 9px;
+            border-radius: 50px;
+            display: inline-block;
+            position: relative;
+            &:checked:after {
+                content: ' ';
+                width: 12px;
+                height: 12px;
+                border-radius: 50px;
+                position: absolute;
+                top: 3px;
+                box-shadow: inset 0px 0px 10px rgba(0, 0, 0, 0.3);
+                text-shadow: 0px;
+                left: 3px;
+                font-size: 32px;
+            }
+            &:checked {
+                border-width: 1px;
+                border-style: solid;
+                box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), inset 0px -15px 10px -12px rgba(0, 0, 0, 0.05), inset 15px 10px -12px rgba(255, 255, 255, 0.1), inset 0px 0px 10px rgba(0, 0, 0, 0.1);
+            }
+        } // Color Sets
+        .checkbox {
+            label {
+                input {
+                    background-color: #fafafa;
+                    border-color: #cacece;
+                    &:checked {
+                        background-color: lighten($main-color, 35%);
+                        border-color: lighten($main-color, 25%);
+                        color: $main-color;
+                        &::after {
+                            color: $main-color;
+                        }
+                    }
+                }
+            }
+        }
+        .radio {
+            background-color: #fafafa;
+            border-color: #cacece;
+            &:checked {
+                background-color: lighten($main-color, 35%);
+                border-color: lighten($main-color, 25%);
+                color: $main-color;
+                &::after {
+                    background: #99a1a7;
+                }
+            }
+        }
+        &:hover,
+        &:active,
+        &:focus,
+        &:visited {
+            select,
+            input,
+            textarea {
+                box-shadow: none;
+                outline: none;
+                transition: .5s border-color ease, .5s background-color ease, .5s color ease;
+            }
+        }
+    }
+    .mce-btn button {
+        background-color: transparent !important;
+        color: inherit;
+    }
+    // Fieldset
+    fieldset {
+        legend {
+            font-size: 15px;
+            padding: 7px 15px;
+            margin: 0 0 7px;
+            font-weight: bold;
+            text-align: center;
+            border-color: inherit;
+        }
+    }
+}

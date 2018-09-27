@@ -1,0 +1,147 @@
+$wi-colors: (
+  body: (
+    colour: $body-color,
+    elements: $elements-body-color,
+    components: $components-body-color
+  ),
+  main: (
+    colour: $main-color,
+    elements: $elements-main-color,
+    components: $components-main-color
+  ),
+  light: (
+    colour: $light-color,
+    elements: $elements-light-color,
+    components: $components-light-color
+  ),
+  dark: (
+    colour: $dark-color,
+    elements: $elements-dark-color,
+    components: $components-dark-color
+  )
+);
+
+$wi-theme-colors: () !default;
+
+@each $color-name, $color-sets in $wi-colors {
+  $wi-theme-colors: map-merge(
+    (
+      #{$color-name}: (
+        colour: (
+          bg: map-get($color-sets, colour),
+          contrast: map-get($color-sets, elements),
+          headers: headers($main-color),
+          anchors: anchors($main-color),
+          texts: texts(map-get($color-sets, colour)),
+          borders: borders(map-get($color-sets, elements)),
+          buttons: buttons(map-get($color-sets, elements)),
+          shadows: shadows(map-get($color-sets, elements))
+        ),
+        inverse: (
+          bg: map-get(inverse-component-color($color-sets), colour),
+          contrast: map-get(inverse-component-color($color-sets), elements),
+          headers: headers($main-color),
+          anchors: anchors($main-color),
+          texts: texts(map-get(inverse-component-color($color-sets), colour)),
+          borders: borders(map-get(inverse-component-color($color-sets), elements)),
+          buttons: buttons(map-get(inverse-component-color($color-sets), elements)),
+          shadows: shadows(map-get(inverse-component-color($color-sets), elements))
+        )
+      )
+    ), $wi-theme-colors)
+}
+
+
+// $wi-theme-colors: map-merge(
+//   (
+//     body: (
+//       colour: (
+//         bg: $body-color,
+//         contrast: $elements-body-color,
+//         headers: headers($main-color),
+//         anchors: anchors($main-color),
+//         texts: texts($body-color),
+//         borders: borders($elements-body-color),
+//         buttons: buttons($elements-body-color),
+//         shadows: shadows($elements-body-color),
+//       ),
+//       inverse: (
+//         bg: $components-body-color,
+//         contrast: $elements-body-color,
+//         headers: headers($main-color),
+//         anchors: anchors($main-color),
+//         texts: texts($components-body-color),
+//         borders: borders($elements-body-color),
+//         buttons: buttons($elements-body-color),
+//         shadows: shadows($elements-body-color),
+//       )
+//     ),
+//     main: (
+//       colour: (
+//         bg: $main-color,
+//         contrast: $elements-main-color,
+//         headers: headers($main-color),
+//         anchors: anchors($main-color),
+//         texts: texts($main-color),
+//         borders: borders($elements-main-color),
+//         buttons: buttons($elements-main-color),
+//         shadows: shadows($elements-main-color),
+//       ),
+//       inverse: (
+//         bg: $components-main-color,
+//         contrast: $elements-body-color,
+//         headers: headers($main-color),
+//         anchors: anchors($main-color),
+//         texts: texts($components-main-color),
+//         borders: borders($elements-body-color),
+//         buttons: buttons($elements-body-color),
+//         shadows: shadows($elements-body-color),
+//       )
+//     ),
+//     light: (
+//       colour: (
+//         bg: $light-color,
+//         contrast: $dark-color,
+//         headers: headers($main-color),
+//         anchors: anchors($main-color),
+//         texts: lighten($dark-color, 15%),
+//         borders: darken($main-color, 10%),
+//         buttons: $main-color,
+//         shadows: $dark-color
+//       ),
+//       inverse: (
+//         bg: $dark-color,
+//         contrast: $light-color,
+//         headers: headers($main-color),
+//         anchors: anchors($main-color),
+//         texts: darken($light-color, 20%),
+//         borders: lighten($main-color, 20%),
+//         buttons: lighten($main-color, 15%),
+//         shadows: $light-color
+//       )
+//     ),
+//     dark: (
+//       colour: (
+//         bg: $dark-color,
+//         contrast: $light-color,
+//         headers: headers($main-color),
+//         anchors: anchors($main-color),
+//         texts: darken($light-color, 20%),
+//         borders: lighten($main-color, 20%),
+//         buttons: lighten($main-color, 15%),
+//         shadows: $light-color
+//       ),
+//       inverse: (
+//         bg: $light-color,
+//         contrast: $dark-color,
+//         headers: headers($main-color),
+//         anchors: anchors($main-color),
+//         texts: $dark-color,
+//         borders: darken($main-color, 10%),
+//         buttons: $main-color,
+//         shadows: $dark-color
+//       )
+//     )
+//   ),
+//   $wi-theme-colors
+// );

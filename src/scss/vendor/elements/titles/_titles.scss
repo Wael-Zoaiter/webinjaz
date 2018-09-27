@@ -1,0 +1,52 @@
+// .title {
+// 	font-size: 35px;
+// 	padding-bottom: 40px;
+// 	position: relative;
+// 	text-align: center;
+// 	&:after {
+// 	  content: '';
+// 	  height: 25px;
+// 	  width: 2px;
+// 	  position: absolute;
+// 	  margin: 0 auto;
+// 	  left: 0;right: 0;
+// 	  bottom: 0;
+// 	  background: $main-color;
+// 	  display: inline-block;
+// 	  text-align: center;
+// 	}
+// }
+
+.title-1 {
+	font-size: 35px;
+	padding-bottom: 10px;
+	position: relative;
+	text-align: center;
+	&:after {
+	  content: '';
+	  height: 2px;
+      width: 100%;
+      border-radius: 50%;
+	  position: absolute;
+	  margin: 0 auto;
+	  left: 0;right: 0;
+	  bottom: 0;
+	  background: $main-color;
+	  display: inline-block;
+	  text-align: center;
+    }
+    &:before {
+        content: '';
+        height: 6px;
+        width: 6px;
+        z-index: 1;
+        position: absolute;
+        margin: 0 auto;
+        border-radius: 50%;
+        left: 0;right: 0;
+        bottom: -10px;
+        background: $main-color;
+        display: inline-block;
+        text-align: center;
+    }
+}
